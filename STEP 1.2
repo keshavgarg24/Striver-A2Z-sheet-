@@ -1,0 +1,300 @@
+## patterns problems 
+
+1) Problem statement
+Sam is making a forest visualizer. An N-dimensional forest is represented by the pattern of size NxN filled with ‘*’.
+
+For every value of ‘N’, help sam to print the corresponding N-dimensional forest.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+* * *
+* * *
+* * *
+
+solution 
+
+void nForest(int n) {
+	for(int i = 0; i<n ; i++){
+		for(int j = 0 ; j<n ; j++){
+			cout<<"* ";
+		}
+		cout<<endl;
+	}
+}
+
+
+2) Sam is making a forest visualizer. An N-dimensional forest is represented by the pattern of size NxN filled with ‘*’.
+
+An N/2-dimensional forest is represented by the lower triangle of the pattern filled with ‘*’.
+
+For every value of ‘N’, help sam to print the corresponding N/2-dimensional forest.
+
+Example:
+Input:  ‘N’ = 3
+
+Output: 
+* 
+* *
+* * *
+
+solution 
+
+void nForest(int n) {
+	for(int i= 0 ; i<n ; i++){
+		for(int j =0; j<=i ;j++){
+			cout<<"* ";
+		}
+		cout<<endl;
+	}
+}
+
+
+3) Problem statement
+Sam is making a Triangular painting for a maths project.
+
+An N-dimensional Triangle is represented by the lower triangle of the pattern filled with integers starting from 1.
+
+For every value of ‘N’, help sam to print the corresponding N-dimensional Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+1
+1 2 
+1 2 3
+
+solution 
+
+void nTriangle(int n) {
+	for(int i =1 ; i<=n; i++){
+		for(int j = 1; j<=i ; j++){
+			cout<<j<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+
+4)Problem statement
+Sam is making a Triangular painting for a maths project.
+
+An N-dimensional Triangle is represented by the lower triangle of the pattern filled with integers representing the row number.
+
+For every value of ‘N’, help sam to print the corresponding Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+1
+2 2 
+3 3 3
+
+solution 
+
+void triangle(int n) {
+	for(int i = 1; i<=n;i++){
+		for(int j = 1 ; j<=i;j++){
+			cout<<i<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+
+5) Problem statement
+Sam is planting trees on the upper half region (separated by the left diagonal) of the square shared field.
+
+For every value of ‘N’, print the field if the trees are represented by ‘*’.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+* * *
+* *
+*
+
+solution 
+
+void seeding(int n) {
+	for(int i = 1 ; i<=n; i++){
+		for(int j=1; j<=n-i+1; j++){
+			cout<<"* ";
+		}
+		cout<<endl;
+	}
+}
+
+6) Problem statement
+Aryan and his friends are very fond of the pattern. For a given integer ‘N’, they want to make the Reverse N-Number Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+1 2 3
+1 2
+1
+
+solution 
+
+void nNumberTriangle(int n) {
+    	for(int i = 1 ; i<=n; i++){
+		for(int j=1; j<=n-i+1; j++){
+			cout<<j<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+
+7) Problem statement
+Ninja was very fond of patterns. For a given integer ‘N’, he wants to make the N-Star Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+  *
+ ***
+*****
+
+solution 
+
+void nStarTriangle(int n) {
+    for(int i = 0; i<n ; i++){
+
+        for(int j = 0 ; j<(n-i-1); j++){
+            cout<<" ";
+        }
+
+        for(int j = 0; j<(2*i +1) ; j++){
+            cout<<"*";
+        }
+
+        for(int j =0 ; j<(n-i-1); j++){
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+8) Problem statement
+Ninja was very fond of patterns. For a given integer ‘N’, he wants to make the Reverse N-Star Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+*****
+ ***
+  *
+
+  solution 
+
+  void nStarTriangle(int n) {
+        for(int i = 0; i<n ; i++){
+
+            for(int j = 0 ; j<i; j++){
+                cout<<" ";
+            }
+
+            for(int j = 0; j<(2*n -(2*i + 1)) ; j++){
+                cout<<"*";
+            }
+
+            for(int j =0 ; j<i; j++){
+                cout<<" ";
+            }
+        cout<<endl;
+    }
+}
+
+
+9) Problem statement
+Ninja was very fond of patterns. For a given integer ‘N’, he wants to make the N-Star Diamond.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+  *
+ ***
+*****
+*****
+ ***
+
+ solution 
+
+ void nStarDiamond(int n) {
+        for(int i = 0; i<n ; i++){
+
+        for(int j = 0 ; j<(n-i-1); j++){
+            cout<<" ";
+        }
+
+        for(int j = 0; j<(2*i +1) ; j++){
+            cout<<"*";
+        }
+
+        for(int j =0 ; j<(n-i-1); j++){
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+
+            for(int i = 0; i<n ; i++){
+
+            for(int j = 0 ; j<i; j++){
+                cout<<" ";
+            }
+
+            for(int j = 0; j<(2*n -(2*i + 1)) ; j++){
+                cout<<"*";
+            }
+
+            for(int j =0 ; j<i; j++){
+                cout<<" ";
+            }
+        cout<<endl;
+    }
+    }
+
+
+    10) Problem statement
+Ninja was very fond of patterns. For a given integer ‘N’, he wants to make the N-Star Rotated Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+*
+**
+***
+**
+*
+
+solution 
+
+void nStarTriangle(int n) {
+    for(int i = 1 ; i<= 2*n-1;i++){
+        int str = i;
+        if(i>n) str = 2*n-i;
+        for(int j = 1 ; j<= str ; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+}
+
+
