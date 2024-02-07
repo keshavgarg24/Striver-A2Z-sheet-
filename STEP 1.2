@@ -298,3 +298,295 @@ void nStarTriangle(int n) {
 }
 
 
+11) Problem statement
+Aryan and his friends are very fond of the pattern. For a given integer ‘N’, they want to make the N-Binary Number Triangle.
+
+You are required to print the pattern as shown in the examples below.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+1
+0 1
+1 0 1
+
+solution 
+
+void nBinaryTriangle(int n) {
+    int pr = 1;
+    for(int i = 1; i<=n; i++){
+        if( i%2 == 0) pr = 0;
+        else pr = 1;
+        for(int j = 1 ; j<=i ; j++ ){
+            cout<< pr << " " ;
+            pr = 1-pr;
+        }
+        cout<<endl;
+    }
+}
+
+
+12) Problem statement
+Aryan and his friends are very fond of the pattern. They want to make the Reverse N-Number Crown for a given integer' N'.
+
+Given 'N', print the corresponding pattern.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+1         1
+1 2     2 1
+1 2 3 3 2 1
+
+solution 
+
+void numberCrown(int n){
+    for(int i = 1 ; i <= n; i++){
+      for(int j = 1 ; j <= i; j++){
+        cout<<j<<" ";
+        }
+
+      for(int j = i ; j >= 1; j--){
+        cout<<j<<" ";
+        }
+      cout<<endl;
+    }
+}
+
+
+13) Problem statement
+Aryan and his friends are very fond of patterns. For a given integer ‘N’, they want to make the Increasing Number Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+1
+2 3
+4 5 6
+
+solution 
+
+void nNumberTriangle(int n) {
+    int pr=1;
+    for(int i = 1 ; i <= n ; i++){
+        for(int j = 1 ; j <= i ; j++){
+            cout<<pr<<" ";
+            pr++;
+        }
+        cout<<endl;
+    }
+}
+
+
+14) Problem statement
+Aryan and his friends are very fond of patterns. For a given integer ‘N’, they want to make the Increasing Letter Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+A
+A B
+A B C
+
+solution 
+
+void nLetterTriangle(int n) {
+    for(int i =1 ; i<=n; i++){
+		for(int j = 1; j<=i ; j++){
+			cout<<char('A'+j-1)<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+
+15) Problem statement
+Aryan and his friends are very fond of patterns. For a given integer ‘N’, they want to make the Reverse Letter Triangle.
+
+You must print a matrix corresponding to the given Reverse Letter Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+
+A B C
+A B
+A
+
+solution 
+
+void nLetterTriangle(int n) {
+     	for(int i = 1 ; i<=n; i++){
+		for(int j=1; j<=n-i+1; j++){
+			cout<<char('A'+j-1)<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+
+16) Problem statement
+Sam is curious about Alpha-Ramp, so he decided to create Alpha-Ramp of different sizes.
+
+An Alpha-Ramp is represented by a triangle, where alphabets are filled from the top in order.
+
+For every value of ‘N’, help sam to return the corresponding Alpha-Ramp.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+A
+B B
+C C C
+
+solution 
+
+void alphaRamp(int n) {
+    for(int i = 1 ; i<=n; i++){
+        for(int j = 1 ; j <= i ; j++){
+            cout<<char('A'+i-1)<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+
+17) Problem statement
+Sam is curious about Alpha-Hills, so he decided to create Alpha-Hills of different sizes.
+
+An Alpha-hill is represented by a triangle, where alphabets are filled in palindromic order.
+
+For every value of ‘N’, help sam to return the corresponding Alpha-Hill.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+    A
+  A B A
+A B C B A
+
+solution 
+
+void alphaHill(int n) {
+        for(int i = 0; i<n ; i++){
+
+        for(int j = 1; j<=(n-i-1); j++){
+            cout<<" ";
+        }
+
+        char ch = 'A';
+        int brk = (2*i+1)/2;
+        for(int j = 1 ; j<=(2*i+1); j++){
+            cout<<ch<<" ";
+            if(j<=brk) ch++;
+            else ch--;
+        }
+
+        for(int j =1 ; j<=(n-i-1); j++){
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+18) Problem statement
+Sam is researching on Alpha-Triangles. So, he needs to create them for different integers ‘N’.
+
+An Alpha-Triangle is represented by the triangular pattern of alphabets in reverse order.
+
+For every value of ‘N’, help sam to print the corresponding Alpha-Triangle.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+C
+C B 
+C B A
+
+solution 
+
+void alphaTriangle(int n) {
+    for(int i = 1 ; i<=n; i++){
+        for(int j = 1 ; j<=i; j++){
+            cout<<char('A'+n-j)<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+19) Problem statement
+Sam is curious about symmetric patterns, so he decided to create one.
+
+For every value of ‘N’, return the symmetry as shown in the example.
+
+Example:
+Input: ‘N’ = 3
+
+Output: 
+* * * * * * 
+* *     * * 
+*         * 
+*         * 
+* *     * * 
+* * * * * * 
+
+solution 
+
+void symmetry(int n) {
+    int spaces = 0;
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 1 ; j <= n-i+1 ; j++){
+            cout<<"* ";
+        }
+
+        for(int j = 0 ; j< spaces ; j++){
+            cout<<" ";
+        }
+
+        for(int j = 1 ; j <= n-i+1 ; j++){
+            cout<<"* ";
+        }
+
+        spaces += 2; 
+        cout<<endl;
+    }
+
+    int spaces = 2*n - 2;
+    for(int i = 1 ; i <= n ; i++){
+        for(int j = 1 ; j <= i ; j++){
+            cout<<"* ";
+        }
+
+        for(int j = 0 ; j< spaces ; j++){
+            cout<<" ";
+        }
+
+        for(int j = 1 ; j <= i ; j++){
+            cout<<"* ";
+        }
+
+        spaces -= 2; 
+        cout<<endl;
+    }
+
+}
+
+
+
+
+
