@@ -1,0 +1,117 @@
+1) Problem statement
+You are given an integer ‘n’.
+Your task is to return an array containing integers from 1 to ‘n’ (in increasing order) without using loops.
+
+solution 
+
+vector<int> printNos(int x) {
+    if(x == 1){
+        return{1};
+    }
+    vector<int> result = printNos(x-1);
+    result.push_back(x);
+    return result;
+}
+
+
+2) Problem statement
+You are given an integer ‘n’.
+Print “Coding Ninjas ” ‘n’ times, without using a loop.
+
+solution 
+
+vector<string> printNTimes(int n) {
+	if(n == 0){
+		return {};
+	}
+	vector<string> result = printNTimes(n-1);
+	result.push_back("Coding Ninjas ");
+	return result;
+}
+
+
+3) Problem statement
+You are given an integer ‘n’.
+Your task is to return an array containing integers from ‘n’ to ‘1’ (in decreasing order) without using loops.
+
+solution 
+
+vector<int> printNos(int x) {
+    if(x == 0){
+        vector<int> result ;
+        return result ;
+    }
+
+    else {
+        static vector<int> result;
+        result.push_back(x);
+        printNos(x - 1);
+        return result;
+    }
+}
+
+
+4)Problem statement
+You are given an integer ‘n’.
+Your task is determining the sum of the first ‘n’ natural numbers and returning it.
+
+
+solution
+
+long long sumFirstN(long long n) {
+    long long sum = 0;
+    for (long long i = 1; i <= n; ++i) {
+        sum += i;
+    }
+    return sum;
+}
+
+
+5)Problem statement
+You are given an integer ’n’.
+Your task is to return a sorted array (in increasing order) containing all the factorial numbers which are less than or equal to ‘n’.
+The factorial number is a factorial of a positive integer, like 24 is a factorial number, as it is a factorial of 4.
+
+solution 
+
+long long factorial(long long n){
+    if(n == 0 || n == 1){
+        return 1;
+    }
+    return n*factorial(n-1);
+}
+vector<long long> factorialNumbers(long long n , long long current = 1 , vector<long long> result ={}) {
+    long long fact = factorial(current);
+    if( fact > n){
+        return result;
+    }
+    result.push_back(fact);
+    return factorialNumbers(n, current+1 , result);
+}
+
+
+6) Problem statement
+Given an array 'arr' of size 'n'.
+Return an array with all the elements placed in reverse order.
+Note:
+You don’t need to print anything. Just implement the given function.
+
+solution 
+
+void reverseArrayHelper ( vector<int> &nums , int start , int end){
+    if(start >= end){
+        return;
+    }
+    swap( nums[start] , nums[end]);
+    reverseArrayHelper(nums,start + 1, end-1);
+}
+
+vector<int> reverseArray(int n, vector<int> &nums)
+{
+    reverseArrayHelper(nums, 0, n-1);
+    return nums ;
+
+}
+
+
+7) 
