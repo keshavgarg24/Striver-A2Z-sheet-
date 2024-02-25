@@ -114,4 +114,101 @@ vector<int> reverseArray(int n, vector<int> &nums)
 }
 
 
-7) 
+7) Problem statement
+Determine if a given string ‘S’ is a palindrome using recursion. Return a Boolean value of true if it is a palindrome and false if it is not.
+Note: You are not required to print anything, just implement the function. Example:
+Input: s = "racecar"
+Output: true
+Explanation: "racecar" is a palindrome.
+
+solution 
+
+#include<string.h>
+int palindromehelp( string str , int start , int end){
+    if( start >= end){
+        return true;
+    }
+    if( str.at(start) == str.at(end)){
+        return palindromehelp(str,start + 1,end - 1);
+    }
+    return false;
+}
+
+bool isPalindrome(string& str) {
+    return palindromehelp(str,0, str.size()-1);
+}
+
+
+8) A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+solution 
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int start = 0;
+        int end = s.size()-1;
+
+        while(start <= end){
+            if(!isalnum(s[start])){
+                start++;
+                continue;
+            }
+            if(!isalnum(s[end])){
+                end--;
+                continue;
+            }
+            if(tolower(s[start]) != tolower(s[end])){return false;}
+            else{
+                start++;
+                end--;
+            }
+        }
+        return true ;
+    }
+};
+
+
+9) Problem statement
+Given an integer ‘n’, return first n Fibonacci numbers using a generator function.
+
+solution 
+
+vector<int> generateFibonacciNumbers(int n) {
+    vector<int> result;
+    if (n <= 0) {
+        return result;
+    } else if (n == 1) {
+        result.push_back(0);
+        return result;
+    } else if (n == 2) {
+        result.push_back(0);
+        result.push_back(1);
+        return result;
+    }
+
+    
+    result = generateFibonacciNumbers(n - 1);
+    result.push_back(result[result.size() - 1] + result[result.size() - 2]);
+
+    return result;
+}
+
+
+10) problem statement 
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1
+
+solution 
+
+class Solution {
+public:
+    int fib(int n) {
+        if(n == 0 || n == 1){
+            return n ;
+        }
+        int ans = fib(n-1) + fib(n-2);
+        return ans ;
+        
+    }
+};
