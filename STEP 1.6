@@ -1,0 +1,58 @@
+1) Problem statement
+You are given an array 'arr' of length 'n' containing integers within the range '1' to 'x'.
+Your task is to count the frequency of all elements from 1 to n.
+
+solution 
+
+vector<int> countFrequency(int n, int x, vector<int> &nums){
+    vector<int>hash(n);
+    for(int i = 0; i<n; i++){
+        if(nums[i]<=n){
+            hash[nums[i]-1]++;
+        }
+    }
+    return hash;
+}
+
+
+2) Problem statement
+Given an array 'v' of 'n' numbers.
+Your task is to find and return the highest and lowest frequency elements.
+If there are multiple elements that have the highest frequency or lowest frequency, pick the smallest element.
+
+solution 
+
+vector<int> getFrequencies(vector<int>& v) {
+    int high = INT_MIN;
+    int low = INT_MAX;
+    int n = v.size();
+
+    map<int ,int>mpp;
+    for(int i = 0 ; i<n;i++){
+        mpp[v[i]]++;
+    }
+
+    for(auto it:mpp){
+        if(it.second>high) high =it.second;
+        if(it.second<low) low = it.second;
+    }
+
+    for(auto it:mpp){
+        if(it.second == high){
+            high=it.first;
+            break;
+        }
+    }
+
+    for(auto it:mpp){
+        if(it.second == low){
+            low =it.first;
+            break;
+        }
+    }
+
+    vector<int> result = {high, low};
+    return result;
+}
+
+
