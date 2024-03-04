@@ -1,0 +1,22 @@
+1) Problem statement
+Sort the given unsorted array 'arr' of size 'N' in non-decreasing order using the selection sort algorithm.
+
+solution 
+
+void selectionSort(vector<int>&arr) {
+    int n = arr.size();
+    for(int i = 0 ; i<n; i++){
+        int mine = i;
+        for(int j = i+1 ; j<n ; j++){
+            if(arr[j]<arr[mine]){
+                mine=j;
+            }
+        }
+        int temp = arr[mine];
+        arr[mine]= arr[i];
+        arr[i]= temp;
+    }
+}
+
+
+2) 
