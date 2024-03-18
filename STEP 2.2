@@ -71,6 +71,55 @@ void bubbleSort(vector<int>& arr, int n)
 }
 
 
-3) 
+3) Problem statement
+You are given an integer array 'arr' of size 'N'.
+You must sort this array using 'Insertion Sort' recursively.
+
+solution 
+
+void insertionSort(int arr[], int n)
+{
+    if(n<=1) return;
+    insertionSort(arr, n-1);
+    int last = arr[n-1];
+    int j = n-2;
+    while( j >= 0 && arr[j]>last){
+        arr[j+1] = arr[j];
+        j--;
+    }
+    arr[j+1] = last;
+}
+
+
+4)Problem statement
+Given the 'start' and the 'end'' positions of the array 'input'. Your task is to sort the elements between 'start' and 'end' using quick sort.
+
+solution 
+
+int partitionArray(int input[], int start, int end) {
+	int pivot = input[start];
+	int i = start;
+	int j = end;
+	while( i<j ){
+		while(input[i] <= pivot && i<= end-1){
+			i++;
+		}
+		while(input[j] > pivot && j>= start+1){
+			j--;
+		}
+		if(i < j) swap(input[i],input[j]);
+	}
+	swap(input[start],input[j]);
+	return j;
+}
+
+void quickSort(int input[], int start, int end) {
+	if(start<end){
+		int p = partitionArray(input,start, end);
+		quickSort(input, start, p-1);
+		quickSort(input,p+1, end);
+	}
+}
+
 
 
