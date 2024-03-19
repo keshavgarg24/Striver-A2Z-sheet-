@@ -15,4 +15,130 @@ int largestElement(vector<int> &arr, int n) {
 }
 
 
-2) 
+2) Problem statement
+You have been given an array ‘a’ of ‘n’ unique non-negative integers.
+Find the second largest and second smallest element from the array.
+Return the two elements (second largest and second smallest) as another array of size 2.
+
+solution 
+
+int secondLargest( vector<int> a , int n){
+    int largest = a[0];
+    int slargest = INT_MIN;
+    for(int i = 1; i<n; i++){
+        if( a[i] > largest){
+            slargest = largest;
+            largest = a[i];
+        }
+        else if (a[i] < largest && a[i] > slargest){
+            slargest = a[i];
+        }
+    }
+    return slargest;
+}
+int secondSmallest( vector<int> a , int n){
+    int smallest = a[0];
+    int ssmallest = INT_MAX;
+    for(int i = 1; i<n; i++){
+        if( a[i] < smallest){
+            ssmallest = smallest;
+            smallest = a[i];
+        }
+        else if (a[i] != smallest && a[i] < ssmallest){
+            ssmallest = a[i];
+        }
+    }
+    return ssmallest;
+}
+
+vector<int> getSecondOrderElements(int n, vector<int> a) {
+    int slargest = secondLargest(a , n);
+    int ssmallest = secondSmallest(a,n);
+    return{slargest , ssmallest};
+}
+
+
+
+3) Problem statement
+You have been given an array ‘a’ of ‘n’ non-negative integers.You have to check whether the given array is sorted in the non-decreasing order or not.
+Your task is to return 1 if the given array is sorted. Else, return 0.
+
+solution 
+
+int isSorted(int n, vector<int> a) {
+    for(int i = 0 ; i<n-1 ; i++){
+        if(a[i]<=a[i+1]){
+            
+        }
+        else{
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+4) Problem Statment 
+Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.
+There may be duplicates in the original array.
+
+solution 
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int count = 0;
+        int n = nums.size();
+        for(int i =1;i<n;i++){
+            if(nums[i-1]>nums[i]){
+                count++;
+            }
+        }
+        if(nums[n-1]>nums[0]){
+            count++;
+        }
+        return count<=1;
+        
+    }
+};
+
+
+5) Problem statement
+You are given a sorted integer array 'arr' of size 'n'.
+You need to remove the duplicates from the array such that each element appears only once.
+Return the length of this new array.
+
+solution 
+
+int removeDuplicates(vector<int> &arr, int n) {
+	int size = n;
+	for(int i = 0 ; i<n ; i++){
+		if(arr[i] == arr[i+1]){
+			size--;
+		}
+	}
+	return size;
+}
+
+
+6) Problem Statement 
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Return k.
+
+solution 
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int j = 1;
+        for(int i = 1 ; i<nums.size() ; i++){
+            if(nums[i] != nums[i-1]){
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+};
