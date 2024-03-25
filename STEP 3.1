@@ -142,3 +142,41 @@ public:
         return j;
     }
 };
+
+
+7) Problem statement
+Given an array 'arr' containing 'n' elements, rotate this array left once and return it.
+Rotating the array left by one means shifting all elements by one place to the left and moving the first element to the last position in the array.
+
+solution 
+
+vector<int> rotateArray(vector<int>& arr, int n) {
+    int temp = arr[0];
+    for(int i = 1 ; i<n ; i++){
+        arr[i-1] = arr[i];
+    }
+    arr[n-1] = temp;
+    return arr;
+}
+
+
+
+8) Problem Statement 
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+solution 
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k%n;
+        auto a = nums.begin();
+        auto b = nums.end();
+        reverse(a,b);
+        reverse(a,a+k);
+        reverse(a+k,b);
+    }
+};
+
+
