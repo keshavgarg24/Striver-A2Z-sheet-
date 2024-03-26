@@ -180,3 +180,20 @@ public:
 };
 
 
+9) Problem statement
+Given an array 'arr' with 'n' elements, the task is to rotate the array to the left by 'k' steps, where 'k' is non-negative.
+
+solution 
+
+vector<int> rotateArray(vector<int>arr, int k) {
+    int n = arr.size();
+    k = k%n;
+    reverse(arr.begin(), arr.begin()+k);
+    reverse(arr.begin()+k , arr.end());
+    reverse(arr.begin() , arr.end());
+    return arr;
+}
+
+
+
+10) 
