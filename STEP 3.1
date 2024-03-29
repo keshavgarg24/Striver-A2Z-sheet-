@@ -195,5 +195,112 @@ vector<int> rotateArray(vector<int>arr, int k) {
 }
 
 
+10) Problem statement 
+Given an array 'arr' of 'n' non-negative integers, your task is to move all the zeros to the end of the array while keeping the non-zero elements at the start of the array in their original order. Return the modified array.
 
-10) 
+solution (brute)
+
+vector<int> moveZeros(int n, vector<int> a) {
+    vector<int>  temp;
+    for(int i = 0 ; i<n;i++){
+        if(a[i] != 0){
+            temp.push_back(a[i]);
+        }
+    }
+    int k = temp.size();
+    for(int i = 0 ; i<k;i++){
+        a[i] = temp[i];
+    }
+    for(int i = k ; i<n ; i++){
+        a[i] = 0;
+    }
+    return a;
+}
+
+
+11) Problem Statement 
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+Note that you must do this in-place without making a copy of the array.
+
+solution(optimal)
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int i = 0;
+        for(int j =0;j<nums.size(); j++){
+            if(nums[j] != 0){
+                swap(nums[j],nums[i]);
+                i++;
+            }
+        }
+
+    }
+};
+
+
+12) Problem statement
+You are given an array ‘arr’ containing ‘n’ integers. You are also given an integer ‘num’, and your task is to find whether ‘num’ is present in the array or not.
+If ‘num’ is present in the array, return the 0-based index of the first occurrence of ‘num’. Else, return -1.
+
+solution 
+
+int linearSearch(int n, int num, vector<int> &arr)
+{
+    for(int i = 0 ; i <n ; i++){
+        if(arr[i] == num){
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+13) Problem statement
+Given two sorted arrays, ‘a’ and ‘b’, of size ‘n’ and ‘m’, respectively, return the union of the arrays.
+The union of two sorted arrays can be defined as an array consisting of the common and the distinct elements of the two arrays. The final array should be sorted in ascending order.
+Note: 'a' and 'b' may contain duplicate elements, but the union array must contain unique elements.
+
+solution 
+
+vector<int> sortedArray(vector<int>& a, vector<int>& b) {
+    vector<int> temp;
+    int n = a.size();
+    int m = b.size();
+    int i = 0, j = 0;
+    
+    while (i < n && j < m) {
+        if (a[i] < b[j]) {
+            if (i == 0 || a[i] != a[i - 1]) {
+                temp.push_back(a[i]);
+            }
+            i++;
+        } else if (a[i] > b[j]) {
+            if (j == 0 || b[j] != b[j - 1]) {
+                temp.push_back(b[j]);
+            }
+            j++;
+        } else {
+            if ((i == 0 || a[i] != a[i - 1]) && (j == 0 || b[j] != b[j - 1])) {
+                temp.push_back(a[i]);
+            }
+            i++;
+            j++;
+        }
+    }
+    while (i < n) {
+        if (i == 0 || a[i] != a[i - 1]) {
+            temp.push_back(a[i]);
+        }
+        i++;
+    }
+    while (j < m) {
+        if (j == 0 || b[j] != b[j - 1]) {
+            temp.push_back(b[j]);
+        }
+        j++;
+    }
+
+    return temp;
+}
+
