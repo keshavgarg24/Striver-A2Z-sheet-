@@ -325,4 +325,27 @@ public:
 };
 
 
-15)
+15) Problem statement
+The Road Department is planning to make some new traffic regulations. But to make the regulations they need to analyze the current situation of the traffic.
+The traffic can be analyzed from an array 'VEHICLE' of length 'N' , which consists of ‘0’ if there is no vehicle at that point and ‘1’ if there is a vehicle at the point.
+Unfortunately the array ‘VEHICLE’ got corrupted as at most 'M' '1' got flipped to ‘0’.
+Traffic jam is defined as the length of consecutive vehicles on the road.
+The Road Department wants to know the worst possible scenario for the traffic jam. Return the maximum possible length of the consecutive vehicles.
+
+solution 
+
+int traffic(int n, int m, vector<int> vehicle) {
+	int j = 0 , cnt = 0 , ans = 0;
+	for(int i = 0 ; i<n ; i++){
+		if(vehicle[i] == 0) cnt++;
+		while(cnt > m){
+			if(vehicle[j] == 0) cnt--;
+			j++;
+		}
+		ans = max(ans , i-j+1);
+	}
+	return ans ;
+}
+
+
+
