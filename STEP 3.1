@@ -335,17 +335,88 @@ The Road Department wants to know the worst possible scenario for the traffic ja
 solution 
 
 int traffic(int n, int m, vector<int> vehicle) {
-	int j = 0 , cnt = 0 , ans = 0;
-	for(int i = 0 ; i<n ; i++){
-		if(vehicle[i] == 0) cnt++;
+	int i = 0 , cnt = 0 , ans = 0;
+	for(int j = 0 ; j<n ; j++){
+		if(vehicle[j] == 0) 
+		cnt++; // expanding window 
 		while(cnt > m){
-			if(vehicle[j] == 0) cnt--;
-			j++;
+			if(vehicle[i] == 0) 
+			cnt--;
+			i++; // compressing the window
 		}
-		ans = max(ans , i-j+1);
+		ans = max(ans , j-i+1);
 	}
 	return ans ;
 }
+
+
+
+16) probelm statement 
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+solution 
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0;
+        int cons = 0 ;
+        for(int i = 0 ; i<n ; i++){
+            if(nums[i] == 1){
+                cnt++;
+                cons = max(cons,cnt);
+            }
+            else{
+                cnt = 0;
+            }
+        }
+        return cons;
+    }
+};
+
+
+
+17) Problem statement
+You are given a sorted array 'arr' of positive integers of size 'n'.
+It contains each number exactly twice except for one number, which occurs exactly once.
+Find the number that occurs exactly once.
+
+solution 
+
+#include<vector>
+int getSingleElement(vector<int> &arr){
+	int n = arr.size();
+	for(int i = 0 ; i <n ; i++){
+		int num = arr[i];
+		int cnt = 0;
+		for(int j = 0 ; j<n ; j++){
+			if(arr[j] == arr[i]){
+				cnt ++;
+			}
+		}
+		if( cnt == 1) return num;
+	}	
+	return 0;
+}
+
+
+18) optimal solution 
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int n = nums.size();
+        int xorr = 0;
+        for(int i = 0 ; i<n ; i++){
+            xorr = xorr^nums[i];
+        }
+        return xorr;
+    }
+};
+
+
+19) 
 
 
 
